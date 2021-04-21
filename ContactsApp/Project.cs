@@ -28,11 +28,19 @@ namespace ContactsApp
             }
         }
 
+        /// <summary>
+        /// Возвращает или задаёт индекс текущего выбранного контакта в списке контактов
+        /// </summary>
         public int SelectedContactIndex
         {
             get
             {
                 return _selectedContactIndex;
+            }
+
+            set
+            {
+                _selectedContactIndex = value;
             }
         }
     }
