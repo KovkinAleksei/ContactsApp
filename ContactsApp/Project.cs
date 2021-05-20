@@ -83,5 +83,21 @@ namespace ContactsApp
                 }
             }
         }
+
+        /// <summary>
+        /// Сортировка контактов по алфавиту
+        /// </summary>
+        public void Sort()
+        {
+            for (int b = 0; b < _contacts.Count - 1; b++)
+                for (int c = 0; c < _contacts.Count - 1; c++)
+                    if (String.Compare(_contacts[c].Surname, _contacts[c+1].Surname)  > 0 &&
+                        _contacts.Count > 1)
+                    {
+                        Contact temp = (Contact)_contacts[c + 1].Clone();
+                        _contacts[c + 1] = (Contact)_contacts[c].Clone();
+                        _contacts[c] = (Contact)temp.Clone();
+                    }
+        }
     }
 }
