@@ -8,6 +8,8 @@ namespace ContactsApp
     {
         private List<Contact> _contacts;
         private int _selectedContactIndex;
+        private int _currentContactIndex;
+        private Contact _currentContact;
 
         /// <summary>
         /// Создание проекта
@@ -41,6 +43,44 @@ namespace ContactsApp
             set
             {
                 _selectedContactIndex = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает или задаёт индекс текущего выбранного контакта
+        /// </summary>
+        public int CurrentContactIndex
+        {
+            get
+            {
+                return _currentContactIndex;
+            }
+
+            set
+            {
+                _currentContactIndex = value;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает или задаёт текущий выбранный контакт
+        /// </summary>
+        public Contact CurrentContact
+        {
+            get
+            {
+                return _currentContact;
+            }
+
+            set
+            {
+                _currentContact = (Contact)value.Clone();
+
+                for (int i = 0; i < _contacts.Count; i++)
+                {
+                    if (_currentContact == _contacts[i])
+                        _currentContactIndex = i;
+                }
             }
         }
     }
